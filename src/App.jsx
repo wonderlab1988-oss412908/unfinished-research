@@ -344,7 +344,7 @@ export default function App() {
                   <input
                     value={tagInput}
                     onChange={e => setTagInput(e.target.value)}
-                    onKeyDown={e => { if (e.key === 'Enter') { e.preventDefault(); addTag(tagInput) } }}
+                    onKeyDown={e => { if (e.key === 'Enter' && !e.nativeEvent.isComposing) { e.preventDefault(); addTag(tagInput) } }}
                     placeholder="태그 달기 (Enter)"
                     style={{ ...inputStyle, flex: 1 }}
                   />
