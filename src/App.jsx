@@ -106,7 +106,7 @@ export default function App() {
 
   const addTag = (t) => {
     const cleaned = t.trim().replace(/^#/, '')
-    if (cleaned && !tags.includes(cleaned) && tags.length < 5) {
+    if (cleaned && !tags.includes(cleaned) && tags.length < 10) {
       setTags([...tags, cleaned])
     }
     setTagInput('')
@@ -338,14 +338,14 @@ export default function App() {
 
               <div style={{ marginBottom: 24 }}>
                 <label style={labelStyle}>
-                  태그 <span style={{ fontWeight: 500, color: '#FFF44F', background: '#222', padding: '1px 8px', borderRadius: 6, fontSize: 11, marginLeft: 4 }}>필수</span> <span style={{ fontWeight: 300, opacity: 0.5 }}>(최대 5개)</span>
+                  태그 <span style={{ fontWeight: 500, color: '#FFF44F', background: '#222', padding: '1px 8px', borderRadius: 6, fontSize: 11, marginLeft: 4 }}>필수</span> <span style={{ fontWeight: 300, opacity: 0.5 }}>(최대 10개)</span>
                 </label>
                 <div style={{ display: 'flex', gap: 8, marginBottom: 10 }}>
                   <input
                     value={tagInput}
                     onChange={e => setTagInput(e.target.value)}
                     onKeyDown={e => { if (e.key === 'Enter' && !e.nativeEvent.isComposing) { e.preventDefault(); addTag(tagInput) } }}
-                    placeholder="태그 달기 (Enter)"
+                    placeholder="자유롭게 추가하세요 (Enter)"
                     style={{ ...inputStyle, flex: 1 }}
                   />
                   <button onClick={() => addTag(tagInput)} style={{
